@@ -194,30 +194,31 @@ function RosaSalesPage() {
 
   return (
     <main className="bg-paper text-ink">
+      <div className="scroll-progress" aria-hidden="true" />
       {/* ================= HERO ================= */}
       <div className="relative isolate flex min-h-[520px] flex-col overflow-hidden pb-[420px] md:min-h-[680px] md:pb-0">
         <img
           src="/images/rosa-hero-background.webp"
           alt=""
           aria-hidden="true"
-          className="absolute bottom-0 left-0 -z-20 h-[420px] w-full object-cover object-[63%_center] md:inset-0 md:h-full md:object-center"
+          className="kenburns absolute bottom-0 left-1/2 -z-20 h-[420px] w-auto max-w-none -translate-x-[65%] md:inset-0 md:left-0 md:h-full md:w-full md:max-w-full md:translate-x-0 md:object-cover md:object-center"
         />
         {/* mobile: a foto nasce do papel, na base da seção */}
         <div className="from-paper via-paper/0 to-paper/0 absolute bottom-0 left-0 -z-10 h-[420px] w-full bg-gradient-to-b from-0% via-35% to-100% md:hidden" />
         {/* desktop: a esquerda fica limpa pro texto */}
         <div className="from-paper via-paper/90 to-paper/0 absolute inset-0 -z-10 hidden bg-gradient-to-r from-0% via-42% to-72% md:block" />
         <Wrap className="flex flex-1 items-start pt-9 pb-10 md:items-center md:pt-0 md:pb-0 md:py-16">
-          <div className="reveal w-full md:max-w-[58%] lg:max-w-[54%]">
+          <div className="hero-enter w-full md:max-w-[58%] lg:max-w-[54%]">
             <DocLabel>Consultoria financeira individual</DocLabel>
             <h1 className="my-5 text-[clamp(2rem,3.5vw,2.95rem)] leading-[1.16]">
               Você trabalha, ganha bem — e mesmo assim sente que o dinheiro{" "}
-              <em className="font-display text-credit font-semibold italic">nunca sobra</em>?
+              <em className="draw-underline font-display text-credit font-semibold italic">nunca sobra</em>?
             </h1>
             <p className="text-ink-soft mb-8 max-w-[42ch] text-[1.06rem]">
               Um acompanhamento individual de três meses pra você sair da ansiedade financeira e
               passar a viver com clareza, controle e a tranquilidade de saber pra onde vai cada real.
             </p>
-            <Btn href={WHATSAPP_URL}>
+            <Btn href={WHATSAPP_URL} className="btn-pulse">
               <WhatsappIcon /> Quero organizar minha vida financeira
             </Btn>
             <p className="text-ink-soft mt-3.5 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[0.82rem] sm:text-[0.85rem]">
@@ -321,12 +322,12 @@ function RosaSalesPage() {
           </div>
         </Wrap>
         {/* No celular, a foto entra como faixa embaixo do texto, sem cobrir a leitura. */}
-        <div className="relative h-[240px] overflow-hidden md:hidden">
+        <div className="relative h-[360px] overflow-hidden md:hidden">
           <img
             src="/images/rosa-quem-te-acompanha.webp"
             alt="Rosa, educadora financeira certificada"
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover object-[0%_22%]"
+            className="absolute top-0 left-1/2 h-full w-auto max-w-none -translate-x-[31%]"
           />
           <div className="via-paper/70 to-transparent absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-paper from-30%" />
         </div>
@@ -389,7 +390,7 @@ function RosaSalesPage() {
             ))}
           </div>
 
-          <div className="mx-auto flex max-w-[760px] flex-col">
+          <div className="stagger mx-auto flex max-w-[760px] flex-col">
             {etapas.map((e) => (
               <div
                 key={e.n}
@@ -415,7 +416,7 @@ function RosaSalesPage() {
           <h2 className="mt-3 max-w-[30ch] text-[clamp(1.5rem,2.4vw,2rem)]">
             Ao final, você não depende mais de mim pra se organizar
           </h2>
-          <div className="border-rule bg-rule mt-9 grid gap-px border sm:grid-cols-2 md:grid-cols-3">
+          <div className="stagger border-rule bg-rule mt-9 grid gap-px border sm:grid-cols-2 md:grid-cols-3">
             {entregaveis.map((e) => (
               <div key={e.idx} className="bg-paper-deep px-6 py-7">
                 <div className="text-ink-soft mb-3.5 flex items-center gap-2.5 font-mono text-[0.78rem]">
@@ -443,8 +444,8 @@ function RosaSalesPage() {
           <h2 className="mx-auto mt-3 mb-10 max-w-[28ch] text-center text-[clamp(1.5rem,2.4vw,2rem)]">
             Curso ensina um método. Consultoria olha para a sua realidade.
           </h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="border-rule bg-paper rounded-md border p-8">
+          <div className="stagger grid gap-4 md:grid-cols-2">
+            <div className="border-rule bg-paper rounded-md border p-8 hover-lift">
               <h3 className="font-body text-ink-soft mb-4 text-[1.02rem] font-bold">
                 Um curso qualquer
               </h3>
@@ -465,7 +466,7 @@ function RosaSalesPage() {
                 ))}
               </ul>
             </div>
-            <div className="border-credit bg-paper rounded-md border p-8">
+            <div className="border-credit bg-paper rounded-md border p-8 hover-lift">
               <h3 className="font-body text-credit mb-4 text-[1.02rem] font-bold">
                 A consultoria individual
               </h3>
@@ -521,7 +522,7 @@ function RosaSalesPage() {
           <h2 className="mt-3 text-[clamp(1.5rem,2.4vw,2rem)]">
             Um investimento em três meses. Uma mudança que fica.
           </h2>
-          <div className="border-rule bg-paper mx-auto mt-9 max-w-[620px] rounded-md border p-8">
+          <div className="border-rule bg-paper mx-auto mt-9 max-w-[620px] rounded-md border p-8 hover-lift">
             <div className="text-ink-soft border-rule-soft doc-label mb-5 border-b pb-4">
               extrato · consultoria financeira individual
             </div>
@@ -623,18 +624,18 @@ function RosaSalesPage() {
               Você já tentou fazer isso com planilha, aplicativo e força de vontade. Agora é hora de
               ter alguém do seu lado, olhando pra sua realidade — não pra uma fórmula genérica.
             </p>
-            <Btn href={WHATSAPP_URL} variant="paper">
+            <Btn href={WHATSAPP_URL} variant="paper" className="btn-pulse">
               <WhatsappIcon /> Falar com a Rosa no WhatsApp
             </Btn>
           </div>
         </Wrap>
         {/* No celular, a foto entra como faixa embaixo do texto, sem cobrir a leitura. */}
-        <div className="relative -mb-[6.5vw] h-[230px] overflow-hidden md:hidden">
+        <div className="relative -mb-[6.5vw] h-[290px] overflow-hidden md:hidden">
           <img
             src="/images/rosa-cta-background.webp"
             alt="Rosa consultando o celular na sala de estar"
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover object-right"
+            className="absolute top-0 left-1/2 h-full w-auto max-w-none -translate-x-[73%]"
           />
           <div className="from-ink to-transparent absolute inset-x-0 top-0 h-16 bg-gradient-to-b" />
         </div>
