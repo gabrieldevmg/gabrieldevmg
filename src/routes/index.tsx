@@ -1,9 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BarChart3, BookOpen, Building2, CalendarClock, Check, CreditCard, GraduationCap, Headphones, Landmark, MessageCircle, Sprout, Table, Target, Users, X } from "lucide-react";
 
-import heroBackgroundAsset from "@/assets/rosa-hero-background.png.asset.json";
-import quemTeAcompanhaAsset from "@/assets/rosa-quem-te-acompanha.png.asset.json";
-import ctaBackgroundAsset from "@/assets/rosa-cta-background.png.asset.json";
 
 import { Depoimentos } from "@/components/rosa/depoimentos";
 import {
@@ -200,7 +197,7 @@ function RosaSalesPage() {
       {/* ================= HERO ================= */}
       <div className="relative isolate flex min-h-[520px] flex-col overflow-hidden pb-[420px] md:min-h-[680px] md:pb-0">
         <img
-          src={heroBackgroundAsset.url}
+          src="/images/rosa-hero-background.webp"
           alt=""
           aria-hidden="true"
           className="absolute bottom-0 left-0 -z-20 h-[420px] w-full object-cover object-[63%_center] md:inset-0 md:h-full md:object-center"
@@ -276,7 +273,7 @@ function RosaSalesPage() {
       <Section className="relative overflow-hidden md:min-h-[620px]">
         {/* A foto vira o fundo: Rosa encostada à esquerda, texto sobre o creme. */}
         <img
-          src={quemTeAcompanhaAsset.url}
+          src="/images/rosa-quem-te-acompanha.webp"
           alt="Rosa, educadora financeira certificada"
           loading="lazy"
           className="absolute inset-0 hidden h-full w-full object-cover object-[0%_28%] md:block"
@@ -326,7 +323,7 @@ function RosaSalesPage() {
         {/* No celular, a foto entra como faixa embaixo do texto, sem cobrir a leitura. */}
         <div className="relative h-[240px] overflow-hidden md:hidden">
           <img
-            src={quemTeAcompanhaAsset.url}
+            src="/images/rosa-quem-te-acompanha.webp"
             alt="Rosa, educadora financeira certificada"
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover object-[0%_22%]"
@@ -611,7 +608,7 @@ function RosaSalesPage() {
       <Section className="bg-ink text-paper relative overflow-hidden">
         {/* A foto vira o fundo: Rosa encostada à direita, texto sobre o azul. */}
         <img
-          src={ctaBackgroundAsset.url}
+          src="/images/rosa-cta-background.webp"
           alt="Rosa consultando o celular na sala de estar"
           loading="lazy"
           className="absolute inset-0 hidden h-full w-full object-cover object-right md:block"
@@ -634,7 +631,7 @@ function RosaSalesPage() {
         {/* No celular, a foto entra como faixa embaixo do texto, sem cobrir a leitura. */}
         <div className="relative -mb-[6.5vw] h-[230px] overflow-hidden md:hidden">
           <img
-            src={ctaBackgroundAsset.url}
+            src="/images/rosa-cta-background.webp"
             alt="Rosa consultando o celular na sala de estar"
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover object-right"
