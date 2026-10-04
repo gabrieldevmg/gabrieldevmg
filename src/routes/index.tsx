@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BarChart3, BookOpen, Briefcase, Building2, CalendarClock, Check, CreditCard, Heart, ShieldCheck, User, GraduationCap, Headphones, Landmark, MessageCircle, Sprout, Table, Target, Users, X } from "lucide-react";
+import { ArrowRight, BarChart3, BookOpen, Briefcase, Building2, CalendarClock, Check, CreditCard, Heart, ShieldCheck, User, GraduationCap, Headphones, Landmark, MessageCircle, Sprout, Table, Target, Users, X } from "lucide-react";
 
 
 import { Depoimentos } from "@/components/rosa/depoimentos";
@@ -551,66 +551,112 @@ function RosaSalesPage() {
       </Section>
 
       {/* ================= INVESTIMENTO ================= */}
-      <Section className="bg-paper-deep border-rule border-t">
-        <Wrap className="reveal">
-          <DocLabel className="text-center">Investimento</DocLabel>
-          <h2 className="mx-auto mt-3 max-w-[30ch] text-center text-[clamp(1.5rem,2.4vw,2rem)]">
-            Cada vida financeira é única. O seu plano também.
-          </h2>
-          <p className="text-ink-soft mx-auto mt-4 max-w-[54ch] text-center text-[1.02rem]">
-            O valor da consultoria depende do seu momento e da complexidade da sua situação. Por
-            isso, antes de falar em preço, eu quero entender a sua realidade.
-          </p>
+      <Section className="bg-paper border-rule relative overflow-hidden border-t py-0">
+        {/* Topo: texto à esquerda, Rosa à direita (desktop); no celular a foto vira faixa abaixo do texto. */}
+        <div className="relative isolate md:min-h-[540px]">
+          <img
+            src="/images/rosa-investimento-background.webp"
+            alt="Rosa sorrindo, sentada, com a mão no peito"
+            loading="lazy"
+            className="absolute inset-0 -z-20 hidden h-full w-full [mask-image:linear-gradient(to_bottom,black_82%,transparent)] object-cover object-right md:block"
+          />
+          <div className="from-paper via-paper/85 to-paper/0 absolute inset-0 -z-10 hidden bg-gradient-to-r from-0% via-42% to-68% md:block" />
+          <Wrap className="reveal relative pt-[14vw] pb-8 md:flex md:min-h-[540px] md:items-center md:py-[5vw]">
+            <div className="md:max-w-[50%] lg:max-w-[46%]">
+              <div className="flex items-center gap-4">
+                <DocLabel>Investimento</DocLabel>
+                <span className="bg-gold h-px w-16" aria-hidden="true" />
+              </div>
+              <h2 className="mt-4 mb-5 text-[clamp(1.9rem,3.2vw,2.8rem)] leading-[1.12]">
+                Cada vida financeira é única. O seu plano{" "}
+                <em className="font-display font-semibold italic">também.</em>
+              </h2>
+              <p className="text-ink-soft max-w-[46ch] text-[1.02rem]">
+                O valor da consultoria depende do seu momento e da complexidade da sua situação. Por
+                isso, antes de falar em preço, eu quero entender a sua realidade.
+              </p>
+            </div>
+          </Wrap>
+          <div className="relative h-[360px] overflow-hidden md:hidden">
+            <img
+              src="/images/rosa-investimento-background.webp"
+              alt="Rosa sorrindo, sentada, com a mão no peito"
+              loading="lazy"
+              className="absolute top-0 left-1/2 h-full w-auto max-w-none -translate-x-[69%]"
+            />
+            <div className="from-paper to-transparent absolute inset-x-0 top-0 h-16 bg-gradient-to-b" />
+            <div className="from-paper to-transparent absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t" />
+          </div>
+        </div>
 
-          <div className="stagger mt-10 grid gap-4 md:grid-cols-3">
+        <Wrap className="reveal relative pb-[6.5vw]">
+          <div className="stagger grid gap-4 md:grid-cols-3">
             {formatos.map((f) => (
-              <div key={f.t} className="border-rule bg-paper rounded-md border p-7 hover-lift">
-                <span className="border-rule bg-paper-deep mb-4 flex h-10 w-10 items-center justify-center rounded-[3px] border">
+              <a
+                key={f.t}
+                href={`${WHATSAPP_URL}?text=${encodeURIComponent(`Oi, Rosa! Quero saber o valor da consultoria no formato ${f.t}.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group border-rule bg-paper hover-lift flex flex-col rounded-md border p-7 shadow-sm"
+              >
+                <span className="border-rule bg-paper-deep mb-5 flex h-12 w-12 items-center justify-center rounded-full border">
                   <f.icon className="h-5 w-5" strokeWidth={1.6} aria-hidden="true" />
                 </span>
-                <h3 className="font-body mb-2 text-[1.08rem] font-bold">{f.t}</h3>
-                <p className="text-ink-soft text-[0.95rem]">{f.d}</p>
-              </div>
+                <h3 className="font-display mb-2 text-[1.3rem] font-semibold">{f.t}</h3>
+                <p className="text-ink-soft mb-5 grow text-[0.95rem] leading-relaxed">{f.d}</p>
+                <ArrowRight
+                  className="text-gold h-5 w-5 transition-transform duration-300 group-hover:translate-x-1.5"
+                  aria-hidden="true"
+                />
+              </a>
             ))}
           </div>
 
-          <div className="border-rule bg-paper mx-auto mt-6 max-w-[720px] rounded-md border p-8 hover-lift">
-            <div className="text-ink-soft border-rule-soft doc-label mb-3 border-b pb-4">
-              incluso em todos os formatos
+          <div className="border-rule bg-paper mt-5 rounded-md border p-7 shadow-sm md:p-9">
+            <div className="mb-5 flex items-center gap-4">
+              <span className="doc-label text-ink-soft whitespace-nowrap">
+                Incluso em todos os formatos
+              </span>
+              <span className="bg-gold/50 h-px grow" aria-hidden="true" />
             </div>
-            <ul>
+            <ul className="grid gap-x-10 md:grid-cols-2">
               {inclusos.map((i) => (
                 <li
                   key={i}
-                  className="border-rule-soft flex items-start gap-2.5 border-b py-2.5 text-[0.98rem] last:border-b-0"
+                  className="border-rule-soft flex items-center gap-3.5 border-b py-3.5 text-[0.98rem]"
                 >
-                  <Check className="text-credit mt-1 h-4 w-4 shrink-0" aria-hidden="true" />
+                  <span className="bg-paper-deep flex h-7 w-7 shrink-0 items-center justify-center rounded-full">
+                    <Check className="text-credit h-4 w-4" strokeWidth={2.4} aria-hidden="true" />
+                  </span>
                   {i}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="border-credit bg-paper mx-auto mt-6 flex max-w-[720px] items-start gap-4 rounded-md border p-6">
-            <ShieldCheck className="text-credit mt-0.5 h-7 w-7 shrink-0" strokeWidth={1.6} aria-hidden="true" />
-            <div>
-              <h3 className="font-body text-credit mb-1 text-[1.02rem] font-bold">Garantia</h3>
-              <p className="text-[0.98rem]">
+          <div className="bg-ink text-paper mt-5 flex items-center gap-5 rounded-md p-6 md:p-7">
+            <span className="border-paper/25 bg-paper/10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border">
+              <ShieldCheck className="text-gold h-7 w-7" strokeWidth={1.6} aria-hidden="true" />
+            </span>
+            <div className="border-paper/20 border-l pl-5">
+              <h3 className="font-display text-paper mb-1 text-[1.3rem] font-semibold">Garantia</h3>
+              <p className="text-cream-dim text-[0.98rem]">
                 Se após a primeira sessão você sentir que não é pra você, devolvo 100% do valor.
               </p>
             </div>
           </div>
 
-          <div className="mx-auto mt-8 max-w-[620px] text-center">
+          <div className="mx-auto mt-10 max-w-[620px] text-center">
             <p className="text-ink-soft text-[1rem]">
               Pense no quanto você já perdeu com juros, parcelas e dinheiro que sumiu sem
               explicação. A consultoria é um investimento para estancar isso de vez.
             </p>
-            <p className="text-ink-soft my-5 font-mono text-[0.8rem]">
+            <p className="text-ink-soft my-5 font-mono text-[0.75rem] tracking-wider uppercase">
               Atendo no máximo 12 pessoas por mês para garantir atenção individual.
             </p>
             <Btn href={WHATSAPP_VALORES} className="btn-pulse">
               <WhatsappIcon /> Quero saber o valor para o meu caso
+              <ArrowRight className="text-gold h-4 w-4" aria-hidden="true" />
             </Btn>
             <p className="text-ink-soft mt-3 text-[0.85rem]">
               Conversa rápida pelo WhatsApp, sem compromisso.
