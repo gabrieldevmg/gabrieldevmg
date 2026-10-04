@@ -706,6 +706,17 @@ function RosaSalesPage() {
           <p className="font-mono text-[0.78rem]">
             consultoria financeira individual · atendimento 100% online
           </p>
+          <p className="mt-4 font-mono text-[0.78rem]">
+            Desenvolvido por{" "}
+            <a
+              href="https://wa.me/5538997448620"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-paper underline underline-offset-4 transition-colors hover:text-cream-dim"
+            >
+              Ethos Dev
+            </a>
+          </p>
         </Wrap>
       </footer>
 
