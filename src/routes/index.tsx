@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BarChart3, BookOpen, Building2, CalendarClock, Check, CreditCard, GraduationCap, Headphones, Landmark, MessageCircle, Sprout, Table, Target, Users, X } from "lucide-react";
+import { BarChart3, BookOpen, Briefcase, Building2, CalendarClock, Check, CreditCard, Heart, ShieldCheck, User, GraduationCap, Headphones, Landmark, MessageCircle, Sprout, Table, Target, Users, X } from "lucide-react";
 
 
 import { Depoimentos } from "@/components/rosa/depoimentos";
@@ -16,14 +16,14 @@ import { useReveal } from "@/components/rosa/useReveal";
 
 /** CTA de negociação: abre o WhatsApp com a mensagem já escrita. */
 const WHATSAPP_VALORES = `${WHATSAPP_URL}?text=${encodeURIComponent(
-  "Oi, Rosa! Quero saber os valores e as condições da consultoria financeira individual.",
+  "Oi, Rosa! Quero saber o valor da consultoria financeira para o meu caso.",
 )}`;
 
 const SITE = "https://financasrm.com.br";
 const OG_IMAGE = `${SITE}/og-home.jpg`;
 const TITLE = "Consultoria Financeira Online para Mulheres | Rosa — Finanças RM";
 const DESCRIPTION =
-  "Consultoria financeira individual online com Rosa, ex-gerente bancária com 17 anos de experiência: organize suas finanças, saia das dívidas, monte sua reserva e comece a investir.";
+  "Consultoria financeira individual online com Rosa, ex-gerente de agência com 17 anos no sistema financeiro: organize suas finanças, saia das dívidas, monte sua reserva e comece a investir.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -76,7 +76,7 @@ export const Route = createFileRoute("/")({
               name: "Rosa",
               jobTitle: "Consultora e educadora financeira certificada",
               description:
-                "Ex-gerente de agência (Sicoob) com 17 anos no sistema bancário e MBA em consultoria e diagnóstico.",
+                "Ex-gerente de agência (Sicoob) com 17 anos no sistema financeiro e MBA em consultoria e diagnóstico.",
               knowsAbout: ["Planejamento financeiro pessoal", "Organização financeira", "Renegociação de dívidas", "Reserva de emergência", "Investimentos para iniciantes"],
             },
             {
@@ -181,12 +181,40 @@ const faq = [
   },
   {
     q: "Não vou ter tempo pra acompanhar direito.",
-    a: "São 5 sessões de 1h30, quinzenais, 100% online — cabem na agenda de quem trabalha. E o suporte por WhatsApp entre encontros é justamente pra você não perder o ritmo.",
+    a: "São 5 sessões de 1h, quinzenais, 100% online — cabem na agenda de quem trabalha. E o suporte por WhatsApp entre encontros é justamente pra você não perder o ritmo.",
   },
   {
     q: "Já tentei antes e não deu certo.",
     a: "Um curso ensina um método pra milhares de pessoas ao mesmo tempo. Aqui eu analiso sua renda, seus gastos e seus objetivos, e construo um plano com você — acompanhando cada ajuste, sessão a sessão.",
   },
+];
+
+const formatos = [
+  {
+    icon: User,
+    t: "Individual",
+    d: "Para quem quer organizar as próprias finanças, sair das dívidas, montar a reserva e começar a investir.",
+  },
+  {
+    icon: Heart,
+    t: "Casal",
+    d: "Para quem divide a vida e as contas. Organizamos o orçamento da casa, alinhamos objetivos e acabamos com as brigas por dinheiro.",
+  },
+  {
+    icon: Briefcase,
+    t: "Empreendedores",
+    d: "Para quem tem negócio próprio e mistura as contas pessoais com as da empresa. Separamos as finanças e organizamos as duas pontas.",
+  },
+];
+
+const inclusos = [
+  "Diagnóstico financeiro completo",
+  "5 sessões individuais de 1h, quinzenais",
+  "Suporte via WhatsApp entre as sessões",
+  "Planilha personalizada, e-books e plano de ação",
+  "Condições de pagamento facilitadas, com parcelamento",
+  "Valor combinado antes de começar, sem surpresas",
+  "A primeira conversa é gratuita e sem compromisso",
 ];
 
 function RosaSalesPage() {
@@ -231,8 +259,8 @@ function RosaSalesPage() {
             </p>
             <div className="border-rule mt-9 grid grid-cols-3 gap-3 border-t pt-7 sm:gap-6 md:mt-[3.4vw]">
               {[
-                { icon: Building2, b: "17", s: "anos de experiência bancária" },
-                { icon: Users, b: "35+", s: "mulheres já atendidas" },
+                { icon: Building2, b: "17", s: "anos no sistema financeiro" },
+                { icon: Users, b: "Dezenas", s: "de mulheres acompanhadas" },
                 { icon: Target, b: "3", s: "meses de acompanhamento" },
               ].map((s) => (
                 <div key={s.s}>
@@ -255,7 +283,7 @@ function RosaSalesPage() {
         <Wrap className="reveal">
           <DocLabel tone="dark">Isso soa familiar?</DocLabel>
           <h2 className="text-paper mt-3 mb-4 max-w-[26ch] text-[clamp(1.5rem,2.4vw,2.05rem)]">
-            Você não precisa estar endividada pra viver com o peso do dinheiro na cabeça.
+            Ninguém percebe, mas o dinheiro é a sua maior fonte de ansiedade.
           </h2>
           <p className="text-cream-dim mb-10 max-w-[56ch] text-[1.02rem]">
             Você já tentou planilha, aplicativo, curso, força de vontade — e mesmo assim volta a se
@@ -277,29 +305,36 @@ function RosaSalesPage() {
           src="/images/rosa-quem-te-acompanha.webp"
           alt="Rosa, educadora financeira certificada"
           loading="lazy"
-          className="absolute inset-0 hidden h-full w-full object-cover object-[0%_28%] md:block"
+          className="absolute top-0 left-0 hidden h-auto w-full [mask-image:linear-gradient(to_bottom,black_72%,transparent)] md:block"
         />
         <div className="via-paper/60 to-transparent absolute inset-0 hidden bg-gradient-to-l from-paper from-42% via-52% to-68% md:block" />
         <Wrap className="reveal relative">
           <div className="md:ml-auto md:max-w-[58%] lg:max-w-[52%]">
-            <DocLabel>Quem te acompanha</DocLabel>
+            <DocLabel>Quem vai te acompanhar</DocLabel>
             <h2 className="mt-3 mb-5 text-[clamp(1.5rem,2.4vw,2rem)]">
-              17 anos dentro do sistema bancário pra entender o que realmente organiza a vida
-              financeira de alguém.
+              Organizar a vida financeira das pessoas virou a minha missão.
             </h2>
             <p className="mb-4 text-[1.02rem]">
-              Fui gerente de agência no Sicoob por 17 anos. Nesse tempo, atendi centenas de pessoas
-              — e percebi, atendimento após atendimento, o quanto elas estavam perdidas em relação ao
-              próprio dinheiro. Não por falta de renda. Por falta de orientação.
+              Sou a Rosa. Durante 17 anos trabalhei em instituição financeira e atendi centenas de
+              pessoas. Foi ali que percebi uma coisa que mudou o rumo da minha carreira: a maioria
+              das pessoas não tem um problema de dinheiro. Tem falta de orientação.
             </p>
-            <blockquote className="border-debit font-display my-6 border-l-[3px] pl-4 text-[1.1rem] font-semibold italic">
-              “A maioria das pessoas que passou pela minha mesa no banco não precisava de mais
-              crédito. Precisava de alguém para organizar o que já tinha.”
-            </blockquote>
             <p className="mb-4 text-[1.02rem]">
-              Hoje sou educadora financeira certificada, com MBA em Consultoria e Diagnóstico
-              Organizacional, e já acompanhei mais de 35 mulheres nessa mesma jornada — da ansiedade
-              financeira ao controle real.
+              Eram pessoas trabalhadoras, que ganhavam bem e faziam o possível. Mas ninguém nunca
+              tinha sentado com elas para olhar os números com calma, entender os hábitos por trás
+              dos gastos e montar um plano que fizesse sentido para a vida delas.
+            </p>
+            <p className="font-display text-credit mb-4 text-[1.1rem] font-semibold italic">
+              Decidi que esse seria o meu trabalho.
+            </p>
+            <p className="mb-4 text-[1.02rem]">
+              Me tornei educadora financeira e hoje acompanho cada cliente de forma individual. Olho
+              seus números sem julgamento, entendo o seu momento e construo com você um plano que
+              cabe na sua vida real, não numa fórmula pronta.
+            </p>
+            <p className="mb-4 text-[1.02rem]">
+              E eu não te deixo sozinho no meio do caminho. Estou junto em cada etapa, ajustando o
+              que for preciso até você ter segurança para seguir por conta própria.
             </p>
             <div className="mt-7 grid gap-6 sm:grid-cols-3 sm:gap-0">
               {[
@@ -372,14 +407,14 @@ function RosaSalesPage() {
             Cinco encontros. Um caminho claro do caos ao controle.
           </h2>
           <p className="text-ink-soft mx-auto mb-12 max-w-[56ch] text-center">
-            Acompanhamento 100% online, quinzenal, com sessões de 1h30 e suporte por WhatsApp entre
+            Acompanhamento 100% online, quinzenal, com sessões de 1h e suporte por WhatsApp entre
             um encontro e outro. Do diagnóstico ao plano de ação, você nunca caminha sozinha.
           </p>
 
           <div className="mb-12 flex flex-wrap justify-center gap-x-10 gap-y-6">
             {[
               { b: "5", s: "sessões individuais" },
-              { b: "1h30", s: "por encontro" },
+              { b: "1h", s: "por encontro" },
               { b: "quinzenal", s: "frequência" },
               { b: "3 meses", s: "duração total" },
             ].map((f) => (
@@ -518,44 +553,68 @@ function RosaSalesPage() {
       {/* ================= INVESTIMENTO ================= */}
       <Section className="bg-paper-deep border-rule border-t">
         <Wrap className="reveal">
-          <DocLabel>Investimento</DocLabel>
-          <h2 className="mt-3 text-[clamp(1.5rem,2.4vw,2rem)]">
-            Um investimento em três meses. Uma mudança que fica.
+          <DocLabel className="text-center">Investimento</DocLabel>
+          <h2 className="mx-auto mt-3 max-w-[30ch] text-center text-[clamp(1.5rem,2.4vw,2rem)]">
+            Cada vida financeira é única. O seu plano também.
           </h2>
-          <div className="border-rule bg-paper mx-auto mt-9 max-w-[620px] rounded-md border p-8 hover-lift">
-            <div className="text-ink-soft border-rule-soft doc-label mb-5 border-b pb-4">
-              extrato · consultoria financeira individual
-            </div>
-            <div className="flex flex-col">
-              <LedgerLine label="Diagnóstico financeiro completo" value="incluso" tone="credit" />
-              <LedgerLine
-                label="5 sessões individuais, 1h30, quinzenais"
-                value="incluso"
-                tone="credit"
-              />
-              <LedgerLine label="Suporte via WhatsApp entre sessões" value="incluso" tone="credit" />
-              <LedgerLine label="Planilha, e-books e plano de ação" value="incluso" tone="credit" />
-            </div>
-            <div className="border-ink mt-6 border-t-2 pt-5">
-              <div className="flex items-baseline gap-2.5">
-                <span className="doc-label text-ink-soft">Investimento</span>
-                <span className="leader-dots" />
-                <span className="font-mono text-[0.85rem] font-semibold tracking-wide whitespace-nowrap text-ink">
-                  sob consulta
+          <p className="text-ink-soft mx-auto mt-4 max-w-[54ch] text-center text-[1.02rem]">
+            O valor da consultoria depende do seu momento e da complexidade da sua situação. Por
+            isso, antes de falar em preço, eu quero entender a sua realidade.
+          </p>
+
+          <div className="stagger mt-10 grid gap-4 md:grid-cols-3">
+            {formatos.map((f) => (
+              <div key={f.t} className="border-rule bg-paper rounded-md border p-7 hover-lift">
+                <span className="border-rule bg-paper-deep mb-4 flex h-10 w-10 items-center justify-center rounded-[3px] border">
+                  <f.icon className="h-5 w-5" strokeWidth={1.6} aria-hidden="true" />
                 </span>
+                <h3 className="font-body mb-2 text-[1.08rem] font-bold">{f.t}</h3>
+                <p className="text-ink-soft text-[0.95rem]">{f.d}</p>
               </div>
-              <p className="text-ink-soft mt-3 max-w-[50ch] text-[0.95rem]">
-                Os valores são combinados direto no WhatsApp, conforme o seu momento e o que você
-                precisa. Me conte como estão suas finanças hoje e a gente fecha as condições
-                juntas — sem compromisso.
+            ))}
+          </div>
+
+          <div className="border-rule bg-paper mx-auto mt-6 max-w-[720px] rounded-md border p-8 hover-lift">
+            <div className="text-ink-soft border-rule-soft doc-label mb-3 border-b pb-4">
+              incluso em todos os formatos
+            </div>
+            <ul>
+              {inclusos.map((i) => (
+                <li
+                  key={i}
+                  className="border-rule-soft flex items-start gap-2.5 border-b py-2.5 text-[0.98rem] last:border-b-0"
+                >
+                  <Check className="text-credit mt-1 h-4 w-4 shrink-0" aria-hidden="true" />
+                  {i}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="border-credit bg-paper mx-auto mt-6 flex max-w-[720px] items-start gap-4 rounded-md border p-6">
+            <ShieldCheck className="text-credit mt-0.5 h-7 w-7 shrink-0" strokeWidth={1.6} aria-hidden="true" />
+            <div>
+              <h3 className="font-body text-credit mb-1 text-[1.02rem] font-bold">Garantia</h3>
+              <p className="text-[0.98rem]">
+                Se após a primeira sessão você sentir que não é pra você, devolvo 100% do valor.
               </p>
             </div>
-            <p className="text-ink-soft my-5 text-center font-mono text-[0.8rem]">
-              apenas 12 vagas por mês
+          </div>
+
+          <div className="mx-auto mt-8 max-w-[620px] text-center">
+            <p className="text-ink-soft text-[1rem]">
+              Pense no quanto você já perdeu com juros, parcelas e dinheiro que sumiu sem
+              explicação. A consultoria é um investimento para estancar isso de vez.
             </p>
-            <Btn href={WHATSAPP_VALORES} full>
-              <WhatsappIcon /> Mandar mensagem e combinar valores
+            <p className="text-ink-soft my-5 font-mono text-[0.8rem]">
+              Atendo no máximo 12 pessoas por mês para garantir atenção individual.
+            </p>
+            <Btn href={WHATSAPP_VALORES} className="btn-pulse">
+              <WhatsappIcon /> Quero saber o valor para o meu caso
             </Btn>
+            <p className="text-ink-soft mt-3 text-[0.85rem]">
+              Conversa rápida pelo WhatsApp, sem compromisso.
+            </p>
           </div>
         </Wrap>
       </Section>

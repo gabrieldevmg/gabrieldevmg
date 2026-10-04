@@ -3,31 +3,41 @@ import { useRef, useState } from "react";
 import { DocLabel, Section, Wrap } from "@/components/rosa/primitives";
 
 type Depoimento = {
-  pre: string;
-  destaque: string;
-  pos: string;
+  resultado: string;
+  img: string;
+  w: number;
+  h: number;
+  alt: string;
 };
 
 const depoimentos: Depoimento[] = [
   {
-    pre: "É maravilhoso, você conseguiu me ajudar a ",
-    destaque: "ver os números com respeito e amor",
-    pos: ", sem medo de gastar, e gastar com respeito. Eu sou muito grata, obrigada, obrigada, obrigada!",
+    resultado: "Ver os números com respeito",
+    img: "/images/depoimento-1.webp",
+    w: 1282,
+    h: 1111,
+    alt: "Print de WhatsApp: cliente agradece por ajudá-la a ver os números com respeito e amor, sem medo de gastar.",
   },
   {
-    pre: "Minha planilha está indo a mil! Estou muito feliz. O fato dela ser simples e objetiva tem me ajudado a ser constante nos lançamentos: ",
-    destaque: "13 dias certíssimos",
-    pos: ".",
+    resultado: "13 dias de planilha em dia",
+    img: "/images/depoimento-2.webp",
+    w: 1217,
+    h: 869,
+    alt: "Print de WhatsApp: cliente conta que a planilha está indo a mil e que está constante nos lançamentos há 13 dias.",
   },
   {
-    pre: "",
-    destaque: "Nome quase limpo! 5 dias",
-    pos: ", eu nem tô acreditando. Muito obrigada, Rosa! Por todo acompanhamento, por toda paciência, todo comprometimento comigo e, claro, por todo seu profissionalismo e disposição de ajudar pessoas como eu, que estava toda enrolada! Gratidão!",
+    resultado: "Nome quase limpo em 5 dias",
+    img: "/images/depoimento-3.webp",
+    w: 1292,
+    h: 1211,
+    alt: "Print de WhatsApp: cliente comemora que o nome está quase limpo em 5 dias e agradece o acompanhamento.",
   },
   {
-    pre: "Rosa, quero te agradecer pela sua entrega e direcionamento que me deu através da consultoria financeira. Há tempos eu já sabia que precisava olhar com mais profundidade pra isso, mas confesso que tinha medo. Mesmo já tendo mudado muito a minha mentalidade e até os meus padrões financeiros, ainda faltava a parte prática, a postura real e prática de mudança que se consolidou com seu trabalho. E, a propósito, ",
-    destaque: "os investimentos estão a todo vapor",
-    pos: "!",
+    resultado: "Investimentos a todo vapor",
+    img: "/images/depoimento-4.webp",
+    w: 1215,
+    h: 1009,
+    alt: "Print de WhatsApp: cliente agradece a consultoria financeira e conta que os investimentos estão a todo vapor.",
   },
 ];
 
@@ -66,7 +76,7 @@ export function Depoimentos() {
           O que dizem as clientes
         </h2>
         <p className="text-ink-soft mx-auto mt-4 max-w-[46ch] text-center text-[0.98rem]">
-          Mensagens que chegaram pelo WhatsApp.
+          Mensagens reais, direto do WhatsApp.
         </p>
 
         <div
@@ -82,13 +92,17 @@ export function Depoimentos() {
               <div className="text-ink-soft mb-3.5 font-mono text-[0.78rem]">
                 {String(i + 1).padStart(2, "0")}
               </div>
-              <blockquote className="grow text-[1rem] leading-[1.62]">
-                &ldquo;{d.pre}
-                <b className="bg-paper-deep text-credit box-decoration-clone rounded-[2px] px-1 font-bold">
-                  {d.destaque}
-                </b>
-                {d.pos}&rdquo;
-              </blockquote>
+              <h3 className="font-display text-credit mb-4 text-[1.2rem] leading-snug font-semibold">
+                {d.resultado}
+              </h3>
+              <img
+                src={d.img}
+                alt={d.alt}
+                width={d.w}
+                height={d.h}
+                loading="lazy"
+                className="border-rule-soft h-auto w-full grow-0 rounded-md border"
+              />
               <figcaption className="border-rule-soft mt-5 flex items-baseline gap-2.5 border-t pt-4">
                 <span className="doc-label text-ink-soft">Cliente da consultoria</span>
                 <span className="leader-dots" />
