@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, BarChart3, BookOpen, Briefcase, Building2, CalendarClock, Check, CreditCard, Heart, ShieldCheck, User, GraduationCap, Headphones, Landmark, MessageCircle, Sprout, Table, Target, Users, X } from "lucide-react";
+import { ArrowRight, BookMarked, CalendarCheck, ClipboardList, MessageCircleMore, ClipboardCheck, FileSpreadsheet, MessagesSquare, TrendingUp, Wallet, BarChart3, Briefcase, Building2, CalendarClock, Check, Heart, ShieldCheck, User, GraduationCap, Headphones, Landmark, Target, Users, X } from "lucide-react";
 
 
 import { Depoimentos } from "@/components/rosa/depoimentos";
@@ -137,38 +137,32 @@ const etapas = [
 
 const entregaveis = [
   {
-    idx: "01",
-    icon: Table,
+    icon: FileSpreadsheet,
     t: "Planilha personalizada",
     d: "Pra acompanhar seu orçamento mês a mês, do seu jeito.",
   },
   {
-    idx: "02",
-    icon: BookOpen,
+    icon: BookMarked,
     t: "E-books sobre investimentos",
     d: "Material de apoio pros primeiros passos fora da dívida e rumo à reserva.",
   },
   {
-    idx: "03",
-    icon: Target,
+    icon: ClipboardCheck,
     t: "Plano de ação detalhado",
     d: "Um passo a passo individual, construído a partir do seu diagnóstico.",
   },
   {
-    idx: "04",
-    icon: MessageCircle,
+    icon: MessagesSquare,
     t: "Acompanhamento via WhatsApp",
     d: "Suporte entre as sessões pra dúvidas e ajustes de rota.",
   },
   {
-    idx: "05",
-    icon: Sprout,
+    icon: TrendingUp,
     t: "Autonomia pra investir",
     d: "Você aprende a fazer e revisar seu próprio planejamento, todos os meses.",
   },
   {
-    idx: "06",
-    icon: CreditCard,
+    icon: Wallet,
     t: "Consumo mais consciente",
     d: "Ferramentas pra usar o cartão de crédito com controle, não com culpa.",
   },
@@ -453,13 +447,10 @@ function RosaSalesPage() {
           </h2>
           <div className="stagger border-rule bg-rule mt-9 grid gap-px border sm:grid-cols-2 md:grid-cols-3">
             {entregaveis.map((e) => (
-              <div key={e.idx} className="bg-paper-deep px-6 py-7">
-                <div className="text-ink-soft mb-3.5 flex items-center gap-2.5 font-mono text-[0.78rem]">
-                  <span className="border-rule bg-paper flex h-8 w-8 shrink-0 items-center justify-center rounded-[3px] border">
-                    <e.icon className="h-[17px] w-[17px]" strokeWidth={1.6} aria-hidden="true" />
-                  </span>
-                  <span>{e.idx}</span>
-                </div>
+              <div key={e.t} className="bg-paper-deep px-6 py-7">
+                <span className="border-rule bg-paper mb-4 flex h-11 w-11 items-center justify-center rounded-[4px] border">
+                  <e.icon className="h-[22px] w-[22px]" strokeWidth={2.2} aria-hidden="true" />
+                </span>
                 <h3 className="mb-1.5 text-[1rem] font-bold">{e.t}</h3>
                 <p className="text-ink-soft text-[0.9rem]">{e.d}</p>
               </div>
@@ -553,15 +544,15 @@ function RosaSalesPage() {
       {/* ================= INVESTIMENTO ================= */}
       <Section className="bg-paper border-rule relative overflow-hidden border-t py-0">
         {/* Topo: texto à esquerda, Rosa à direita (desktop); no celular a foto vira faixa abaixo do texto. */}
-        <div className="relative isolate md:min-h-[540px]">
+        <div className="relative isolate md:min-h-[clamp(560px,40vw,780px)]">
           <img
             src="/images/rosa-investimento-background.webp"
             alt="Rosa sorrindo, sentada, com a mão no peito"
             loading="lazy"
-            className="absolute inset-0 -z-20 hidden h-full w-full [mask-image:linear-gradient(to_bottom,black_82%,transparent)] object-cover object-right md:block"
+            className="absolute inset-0 -z-20 hidden h-full w-full [mask-image:linear-gradient(to_bottom,black_90%,transparent)] object-cover object-right-top md:block"
           />
           <div className="from-paper via-paper/85 to-paper/0 absolute inset-0 -z-10 hidden bg-gradient-to-r from-0% via-42% to-68% md:block" />
-          <Wrap className="reveal relative pt-[14vw] pb-8 md:flex md:min-h-[540px] md:items-center md:py-[5vw]">
+          <Wrap className="reveal relative pt-[14vw] pb-8 md:flex md:min-h-[clamp(560px,40vw,780px)] md:items-center md:py-[5vw]">
             <div className="md:max-w-[50%] lg:max-w-[46%]">
               <div className="flex items-center gap-4">
                 <DocLabel>Investimento</DocLabel>
@@ -585,11 +576,11 @@ function RosaSalesPage() {
               className="absolute top-0 left-1/2 h-full w-auto max-w-none -translate-x-[69%]"
             />
             <div className="from-paper to-transparent absolute inset-x-0 top-0 h-16 bg-gradient-to-b" />
-            <div className="from-paper to-transparent absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t" />
+            <div className="from-paper to-transparent absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t" />
           </div>
         </div>
 
-        <Wrap className="reveal relative pb-[6.5vw]">
+        <Wrap className="reveal relative pb-[6.5vw] md:-mt-14">
           <div className="stagger grid gap-4 md:grid-cols-3">
             {formatos.map((f) => (
               <a
@@ -600,7 +591,7 @@ function RosaSalesPage() {
                 className="group border-rule bg-paper hover-lift flex flex-col rounded-md border p-7 shadow-sm"
               >
                 <span className="border-rule bg-paper-deep mb-5 flex h-12 w-12 items-center justify-center rounded-full border">
-                  <f.icon className="h-5 w-5" strokeWidth={1.6} aria-hidden="true" />
+                  <f.icon className="h-[22px] w-[22px]" strokeWidth={2.2} aria-hidden="true" />
                 </span>
                 <h3 className="font-display mb-2 text-[1.3rem] font-semibold">{f.t}</h3>
                 <p className="text-ink-soft mb-5 grow text-[0.95rem] leading-relaxed">{f.d}</p>
@@ -636,7 +627,7 @@ function RosaSalesPage() {
 
           <div className="bg-ink text-paper mt-5 flex items-center gap-5 rounded-md p-6 md:p-7">
             <span className="border-paper/25 bg-paper/10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border">
-              <ShieldCheck className="text-gold h-7 w-7" strokeWidth={1.6} aria-hidden="true" />
+              <ShieldCheck className="text-gold h-7 w-7" strokeWidth={2} aria-hidden="true" />
             </span>
             <div className="border-paper/20 border-l pl-5">
               <h3 className="font-display text-paper mb-1 text-[1.3rem] font-semibold">Garantia</h3>
@@ -673,35 +664,27 @@ function RosaSalesPage() {
             {[
               {
                 n: "1",
-                e: "💬",
+                icon: MessageCircleMore,
                 t: "Chame no WhatsApp",
                 d: "Você entra em contato e confirma sua vaga do mês.",
               },
               {
                 n: "2",
-                e: "📝",
+                icon: ClipboardList,
                 t: "Preencha o diagnóstico",
                 d: "Você recebe um link com o formulário de diagnóstico financeiro.",
               },
               {
                 n: "3",
-                e: "🗓️",
+                icon: CalendarCheck,
                 t: "Agende sua 1ª sessão",
                 d: "Com o diagnóstico em mãos, marcamos o primeiro encontro.",
               },
             ].map((s) => (
               <div key={s.n} className="border-rule border-t pt-5">
-                <div className="mb-2 flex items-center gap-2.5">
-                  <span
-                    aria-hidden="true"
-                    className="border-rule bg-paper grid h-[32px] w-[32px] shrink-0 place-items-center rounded-[3px] text-[1rem] leading-none"
-                  >
-                    {s.e}
-                  </span>
-                  <div className="text-ink-soft font-mono text-[0.85rem] font-bold">
-                    0{s.n}
-                  </div>
-                </div>
+                <span className="border-rule bg-paper mb-4 flex h-11 w-11 items-center justify-center rounded-[4px] border">
+                  <s.icon className="h-[22px] w-[22px]" strokeWidth={2.2} aria-hidden="true" />
+                </span>
                 <h3 className="mb-1.5 text-[1.05rem] font-bold">{s.t}</h3>
                 <p className="text-ink-soft text-[0.95rem]">{s.d}</p>
               </div>
