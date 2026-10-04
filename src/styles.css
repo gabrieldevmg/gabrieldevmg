@@ -405,3 +405,31 @@ a:hover > svg.wa-icon {
     display: none !important;
   }
 }
+
+/* carrossel automático dos depoimentos */
+@keyframes marquee-slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-slide 45s linear infinite;
+}
+.marquee:hover .marquee-track,
+.marquee:active .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+    mask-image: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+}
