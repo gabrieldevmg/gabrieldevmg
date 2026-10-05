@@ -223,7 +223,7 @@ function RosaSalesPage() {
           src="/images/rosa-hero-background.webp"
           alt=""
           aria-hidden="true"
-          className="kenburns absolute bottom-0 left-1/2 -z-20 h-[420px] w-auto max-w-none -translate-x-[65%] md:inset-0 md:left-0 md:h-full md:w-full md:max-w-full md:translate-x-0 md:object-cover md:object-center"
+          className="kenburns absolute bottom-0 left-0 -z-20 h-[420px] w-full object-cover object-[82%_center] md:inset-0 md:h-full md:object-cover md:object-center"
         />
         {/* mobile: a foto nasce do papel, na base da seção */}
         <div className="from-paper via-paper/0 to-paper/0 absolute bottom-0 left-0 -z-10 h-[420px] w-full bg-gradient-to-b from-0% via-35% to-100% md:hidden" />
@@ -351,14 +351,13 @@ function RosaSalesPage() {
           </div>
         </Wrap>
         {/* No celular, a foto entra como faixa embaixo do texto, sem cobrir a leitura. */}
-        <div className="relative h-[360px] overflow-hidden md:hidden">
+        <div className="relative -mb-[6.5vw] aspect-[5/4] w-full overflow-hidden md:hidden">
           <img
             src="/images/rosa-quem-te-acompanha.webp"
             alt="Rosa, educadora financeira certificada"
             loading="lazy"
-            className="absolute top-0 left-1/2 h-full w-auto max-w-none -translate-x-[31%]"
+            className="absolute inset-0 h-full w-full object-cover object-left"
           />
-          <div className="via-paper/70 to-transparent absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-paper from-30%" />
         </div>
       </Section>
 
@@ -568,15 +567,13 @@ function RosaSalesPage() {
               </p>
             </div>
           </Wrap>
-          <div className="relative h-[360px] overflow-hidden md:hidden">
+          <div className="relative mb-6 aspect-[5/4] w-full overflow-hidden md:hidden">
             <img
               src="/images/rosa-investimento-background.webp"
               alt="Rosa sorrindo, sentada, com a mão no peito"
               loading="lazy"
-              className="absolute top-0 left-1/2 h-full w-auto max-w-none -translate-x-[69%]"
+              className="absolute inset-0 h-full w-full object-cover object-right"
             />
-            <div className="from-paper to-transparent absolute inset-x-0 top-0 h-16 bg-gradient-to-b" />
-            <div className="from-paper to-transparent absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t" />
           </div>
         </div>
 
@@ -718,14 +715,13 @@ function RosaSalesPage() {
           </div>
         </Wrap>
         {/* No celular, a foto entra como faixa embaixo do texto, sem cobrir a leitura. */}
-        <div className="relative -mb-[6.5vw] h-[290px] overflow-hidden md:hidden">
+        <div className="relative -mb-[6.5vw] aspect-[5/4] w-full overflow-hidden md:hidden">
           <img
             src="/images/rosa-cta-background.webp"
             alt="Rosa consultando o celular na sala de estar"
             loading="lazy"
-            className="absolute top-0 left-1/2 h-full w-auto max-w-none -translate-x-[73%]"
+            className="absolute inset-0 h-full w-full object-cover object-[94%_center]"
           />
-          <div className="from-ink to-transparent absolute inset-x-0 top-0 h-16 bg-gradient-to-b" />
         </div>
       </Section>
 
